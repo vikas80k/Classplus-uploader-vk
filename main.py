@@ -36,7 +36,7 @@ async def show_random_emojis(message):
     emoji_message = await message.reply_text(' '.join(random.choices(emojis, k=1)))
     return emoji_message
     
-credit ="𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎" 
+credit =" 🇰 🇮 🇳 🇬  🇧 🇭 🇦 🇮 "
 # Initialize the bot
 bot = Client(
     "bot",
@@ -66,7 +66,7 @@ cookies_file_path= "youtube_cookies.txt"
 @bot.on_message(filters.command(["help"]))
 async def txt_handler(client: Client, m: Message):
     await bot.send_message(m.chat.id, text= (
-        "🎉Congrats! You are using 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎:\n┣\n"
+        "🎉Congrats! You are using 🇰 🇮 🇳 🇬  🇧 🇭 🇦 🇮 :\n┣\n"
         "┣⪼01. Send /start - To Check Bot \n┣\n"
         "┣⪼02. Send /drm - for extract txt file\n┣\n"
         "┣⪼03. Send /cp - for stream txt file\n┣\n"
@@ -165,7 +165,7 @@ async def send_logs(bot: Client, m: Message):
 async def start_command(bot: Client, message: Message):
     random_image_url = random.choice(image_urls)
     caption = (
-        "𝐇𝐞𝐥𝐥𝐨 𝐃𝐞𝐚𝐫 👋!\n\n➠ 𝐈 𝐚𝐦 𝐚 𝐓𝐞𝐱𝐭 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫 𝐁𝐨𝐭\n\n➠ Can Extract Videos & PDFs From Your Text File and Upload to Telegram!\n\n➠ For Guide Use Command /help 📖\n\n➠ 𝐌𝐚𝐝𝐞 𝐁𝐲 : 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎 🦁"
+        "𝗪𝗲𝗹𝗰𝗼𝗺𝗲 𝘁𝗼 𝗠𝗶𝘆𝗮 𝗱𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗿 𝗯𝗼𝘁\n\n➠ Can Extract Videos & PDFs From Your Text File and Upload to Telegram!\n\n➠ For Guide Use Command /help 📖\n\n➠ 𝐌𝐚𝐝𝐞 𝐁𝐲 : 𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎 🦁"
     )
     await bot.send_photo(
         chat_id=message.chat.id,
@@ -248,7 +248,7 @@ async def txt_handler(bot: Client, m: Message):
     x = await input.download()
     await input.delete(True)
     file_name, ext = os.path.splitext(os.path.basename(x))
-    credit = f"𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎"
+    credit = f"🇰 🇮 🇳 🇬  🇧 🇭 🇦 🇮 "
     pdf_count = 0
     img_count = 0
     zip_count = 0
@@ -348,10 +348,7 @@ async def txt_handler(bot: Client, m: Message):
     await input4.delete(True)
             
     await editable.edit(f"01. 🌅Send ☞ Direct **Thumb Photo**\n\n"
-                        f"02. 🔗Send ☞ `Thumb URL` for **Thumbnail**\n\n"
-                        f"03. 🎞️Send ☞ `no` for **video** format\n\n"
-                        f"04. 📁Send ☞ `No` for **Document** format")
-    input6 = message = await bot.listen(editable.chat.id)
+                       "No"
     raw_text6 = input6.text
     await input6.delete(True)
     await editable.delete()
@@ -366,7 +363,7 @@ async def txt_handler(bot: Client, m: Message):
         thumb = raw_text6
 
     await m.reply_text(
-        f"<pre><code>🎯Target Batch : {b_name}</code></pre>"
+        f"<pre><code>🎯mera Batch : {b_name}</code></pre>"
     )
 
     end =int(raw_textend)
@@ -430,12 +427,12 @@ async def txt_handler(bot: Client, m: Message):
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
 
             try:  
-                cc = f'•——— `{a_name}` ———•\n\n[——— ✨ {str(count).zfill(3)} ✨ ———]({link0})\n\n🎞️𝐓𝐢𝐭𝐥𝐞 » `{name1} [{res}] .mp4`\n\n<pre><code>📚 Course : {b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'
-                cc1 = f'•——— `{a_name}` ———•\n\n[——— ✨ {str(count).zfill(3)} ✨ ———]({link0})\n\n📕𝐓𝐢𝐭𝐥𝐞 » `{name1} .pdf`\n\n<pre><code>📚 Course : {b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'
-                cczip = f'•——— `{a_name}` ———•\n\n[——— ✨ {str(count).zfill(3)} ✨ ———]({link0})\n\n📁𝐓𝐢𝐭𝐥𝐞 » `{name1} .zip`\n\n<pre><code>📚 Course : {b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'  
-                ccimg = f'•——— `{a_name}` ———•\n\n[——— ✨ {str(count).zfill(3)} ✨ ———]({link0})\n\n🖼️𝐓𝐢𝐭𝐥𝐞 » `{name1} .jpg`\n\n<pre><code>📚 Course : {b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'
-                cccpvod = f'•——— `{a_name}` ———•\n\n[——— ✨ {str(count).zfill(3)} ✨ ———]({link0})\n\n🎞️𝐓𝐢𝐭𝐥𝐞 » `{name1} .mp4`\n\n<a href="{urlcpvod}">__**Click Here to Watch Stream**__</a>\n🔗𝐋𝐢𝐧𝐤 » {link0}\n\n<pre><code>📚 Course : {b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'
-                ccyt = f'•——— `{a_name}` ———•\n\n[——— ✨ {str(count).zfill(3)} ✨ ———]({link0})\n\n🎞️𝐓𝐢𝐭𝐥𝐞 » `{name1} .mp4`\n\n<a href="{url}">__**Click Here to Watch Stream**__</a>\n\n<pre><code>📚 Course : {b_name}</code></pre>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CR}`\n'
+                cc = f'•——— `{a_name}` ———•\n\n[——— ✨ {str(count).zfill(3)} ✨ ———]({link0})\n\n🎞️𝐓𝐢𝐭𝐥𝐞 » `{name1} [{res}] .mp4`\n\n<pre><code>📚 Course : {b_name}</code></pre>\n\n🌟🇺 🇵 🇱 🇴 🇦 🇩  🇧 🇾  » `{CR}`\n'
+                cc1 = f'•——— `{a_name}` ———•\n\n[——— ✨ {str(count).zfill(3)} ✨ ———]({link0})\n\n📕𝐓𝐢𝐭𝐥𝐞 » `{name1} .pdf`\n\n<pre><code>📚 Course : {b_name}</code></pre>\n\n🌟 🇺 🇵 🇱 🇴 🇦 🇩  🇧 🇾  » `{CR}`\n'
+                cczip = f'•——— `{a_name}` ———•\n\n[——— ✨ {str(count).zfill(3)} ✨ ———]({link0})\n\n📁𝐓𝐢𝐭𝐥𝐞 » `{name1} .zip`\n\n<pre><code>📚 Course : {b_name}</code></pre>\n\n🌟🇺 🇵 🇱 🇴 🇦 🇩  🇧 🇾  » `{CR}`\n'  
+                ccimg = f'•——— `{a_name}` ———•\n\n[——— ✨ {str(count).zfill(3)} ✨ ———]({link0})\n\n🖼️𝐓𝐢𝐭𝐥𝐞 » `{name1} .jpg`\n\n<pre><code>📚 Course : {b_name}</code></pre>\n\n🌟🇺 🇵 🇱 🇴 🇦 🇩  🇧 🇾  » `{CR}`\n'
+                cccpvod = f'•——— `{a_name}` ———•\n\n[——— ✨ {str(count).zfill(3)} ✨ ———]({link0})\n\n🎞️𝐓𝐢𝐭𝐥𝐞 » `{name1} .mp4`\n\n<a href="{urlcpvod}">__**Click Here to Watch Stream**__</a>\n🔗𝐋𝐢𝐧𝐤 » {link0}\n\n<pre><code>📚 Course : {b_name}</code></pre>\n\n🌟🇺 🇵 🇱 🇴 🇦 🇩  🇧 🇾  » `{CR}`\n'
+                ccyt = f'•——— `{a_name}` ———•\n\n[——— ✨ {str(count).zfill(3)} ✨ ———]({link0})\n\n🎞️𝐓𝐢𝐭𝐥𝐞 » `{name1} .mp4`\n\n<a href="{url}">__**Click Here to Watch Stream**__</a>\n\n<pre><code>📚 Course : {b_name}</code></pre>\n\n🌟🇺 🇵 🇱 🇴 🇦 🇩  🇧 🇾  » `{CR}`\n'
                                  
                 if "drive" in url:
                     try:
@@ -567,7 +564,7 @@ async def txt_handler(bot: Client, m: Message):
                            f'╰━━━🖼️𝐓𝐡𝐮𝐦𝐛𝐧𝐚𝐢𝐥 » <a href="{raw_text6}">__**Thumb Link**__</a>\n' \
                            f"━━━━━━━━━━━━━━━━━━━━━━━━\n" \
                            f"🛑**Send** /stop **to stop process**\n" \
-                           f"✦𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ✦ `𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎🐦`"
+                           f"✦𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ✦ `🇰 🇮 🇳 🇬  🇧 🇭 🇦 🇮 `"
                     prog = await m.reply_text(Show, disable_web_page_preview=True)
                     res_file = await helper.download_video(url, cmd, name)
                     filename = res_file
@@ -597,7 +594,7 @@ async def txt_handler(bot: Client, m: Message):
                        f"▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n"
                        f"🔹𝙵𝚊𝚒𝚕𝚎𝚍 𝙻𝚒𝚗𝚔𝚜 » {failed_count}\n"
                        f"✅𝚂𝚝𝚊𝚝𝚞𝚜 » 𝙲𝚘𝚖𝚙𝚕𝚎𝚝𝚎𝚍`")
-    await m.reply_text("<pre><code>Downloaded By ⌈✨『𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎』✨⌋</code></pre>")
+    await m.reply_text("<pre><code>Downloaded By ⌈✨『🇺 🇵 🇱 🇴 🇦 🇩  🇧 🇾 』✨⌋</code></pre>")
 
 
 @bot.on_message(filters.command(["cp"]) )
@@ -607,7 +604,9 @@ async def txt_handler(bot: Client, m: Message):
     x = await input.download()
     await input.delete(True)
     file_name, ext = os.path.splitext(os.path.basename(x))
-    credit = f"𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎"
+    credit = f"𝙄 
+
+"
     try:    
         with open(x, "r") as f:
             content = f.read()
@@ -830,9 +829,10 @@ async def text_handler(bot: Client, m: Message):
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
 
             try:
-                cc = f'🎞️𝐓𝐢𝐭𝐥𝐞 » `{name}` [{res}].mp4\n🔗𝐋𝐢𝐧𝐤 » <a href="{link}">__**CLICK HERE**__</a>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎`'
-                cc1 = f'📕𝐓𝐢𝐭𝐥𝐞 » `{name}`\n🔗𝐋𝐢𝐧𝐤 » <a href="{link}">__**CLICK HERE**__</a>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎`'
-                ccyt = f'🎞️𝐓𝐢𝐭𝐥𝐞 » `{name}` .mp4\n🔗𝐋𝐢𝐧𝐤 » <a href="{link}">__**Click Here to Watch Stream**__</a>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎`'
+                cc = f'🎞️𝐓𝐢𝐭𝐥𝐞 » `{name}` [{res}].mp4\n🔗𝐋𝐢𝐧𝐤 » <a href="{link}">__**CLICK HERE**__</a>\n\n🌟🇺 🇵 🇱 🇴 🇦 🇩  🇧 🇾  » `🇰 🇮 🇳 🇬  🇧 🇭 🇦 🇮 `'
+                cc1 = f'📕𝐓𝐢𝐭𝐥𝐞 » `{name}`\n🔗𝐋𝐢𝐧𝐤 » <a href="{link}">__**CLICK HERE**__</a>\n\n🌟🇺 🇵 🇱 🇴 🇦 🇩  🇧 🇾  » `🇰 🇮 🇳 🇬  🇧 🇭 🇦 🇮 `'
+                ccyt = f'🎞️𝐓𝐢𝐭𝐥𝐞 » `{name}` .mp4\n🔗𝐋𝐢𝐧𝐤 » <a href="{link}">__**Click Here to Watch Stream**__</a>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲
+    » `𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎`'
                 cccpvod = f'🎞️𝐓𝐢𝐭𝐥𝐞 » `{name}` .mp4\n<a href="{linkcpvod}">__**Click Here to Watch Stream**__</a>\n🔗𝐋𝐢𝐧𝐤 » {link}\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `𝙎𝘼𝙄𝙉𝙄 𝘽𝙊𝙏𝙎`'
                 
                 if "drive" in url:
@@ -975,7 +975,7 @@ async def text_handler(bot: Client, m: Message):
                                 
                 else:
                     emoji_message = await show_random_emojis(message)
-                    Show = f"**⚡Dᴏᴡɴʟᴏᴀᴅ Sᴛᴀʀᴛᴇᴅ...⏳**\n\n🔗𝐋𝐢𝐧𝐤 » `{link}`\n\n✦𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ✦ `🇸‌🇦‌🇮‌🇳‌🇮‌🐦`"
+                    Show = f"**⚡Dᴏᴡɴʟᴏᴀᴅ Sᴛᴀʀᴛᴇᴅ...⏳**\n\n🔗𝐋𝐢𝐧𝐤 » `{link}`\n\n✦𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ✦ `🇰 🇮 🇳 🇬  🇧 🇭 🇦 🇮 `"
                     prog = await m.reply_text(Show)
                     res_file = await helper.download_video(url, cmd, name)
                     filename = res_file
