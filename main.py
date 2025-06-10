@@ -205,7 +205,7 @@ async def youtube_to_txt(client, message: Message):
         'skip_download': True,
         'force_generic_extractor': True,
         'forcejson': True,
-        #'cookies': 'youtube_cookies.txt'  # Specify the cookies file
+        'cookies': 'youtube_cookies.txt'  # Specify the cookies file
     }
 
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
@@ -588,25 +588,15 @@ async def txt_handler(bot: Client, m: Message):
              file_id = link.split("/d/")[1].split("/")[0]
              Vxy = f"drive.google.com/uc?export=download&id={file_id}"
             else:
-              if "youtube.com/embed/" in link:
-                 video_id = link.split("/embed/")[1]
-                 Vxy = f"www.youtube.com/watch?v={video_id}"
-              else:
-                 Vxy = link.replace("file/d/", "uc?export=download&id=") \
+               Vxy = link.replace("file/d/", "uc?export=download&id=") \
                        .replace("www.youtube-nocookie.com/embed", "youtu.be") \
                        .replace("?modestbranding=1", "") \
                        .replace("/view?usp=sharing", "")
 
             url = "https://" + Vxy
             link0 = "https://" + Vxy
-            name1 = links[i][0].replace("(", "[").replace(")", "]").replace("_", "").replace("\t", "") \
-                    .replace("https", "").replace("http", "").strip()
-            name1 = re.sub(r'[\\/*?:"<>|+#@*.,]', "", name1)
-
-            if","in raw_text3:
-              name = f'{PRENAME} {name1[:60]}'
-            else:
-              name = f'{name1[:60]}'
+            name1 = links[i][0].replace("(", "[").replace(")", "]").replace("_", "").replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "").replace("*", "").replace(".", "").replace("https", "").replace("http", "").strip()
+            name = f'{name1[:60]}' 
             
             if "visionias" in url:
                 async with ClientSession() as session:
@@ -658,12 +648,11 @@ async def txt_handler(bot: Client, m: Message):
                 url = url.split('*')[0]
 
             if "youtu" in url:
-                ytf = f"bv*[height<={raw_text2}][ext=mp4]+ba[ext=m4a]/b[height<=?{raw_text2}]"
+                ytf = f"bv*[height<={raw_text2}][ext=mp4]+ba[ext=m4a]/b[height<={raw_text2}]"
             elif "embed" in url:
                 ytf = f"bestvideo[height<={raw_text2}]+bestaudio/best[height<={raw_text2}]"
             else:
                 ytf = f"b[height<={raw_text2}]/bv[height<={raw_text2}]+ba/b/bv+ba"
-           
             if "jw-prod" in url:
                 cmd = f'yt-dlp -o "{name}.mp4" "{url}"'
             elif "webvideos.classplusapp." in url:
