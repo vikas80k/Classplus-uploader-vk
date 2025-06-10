@@ -597,11 +597,8 @@ async def txt_handler(bot: Client, m: Message):
                        .replace("?modestbranding=1", "") \
                        .replace("/view?usp=sharing", "")
 
-               if not Vxy.startswith("http"):
-                  Vxy = "https://" + Vxy
-
-               url = Vxy
-               link0 = Vxy
+               url = "https://" + Vxy
+               link0 = "https://" + Vxy
                name1 = links[i][0].replace("(", "[").replace(")", "]").replace("_", "").replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "").replace("*", "").replace(".", "").replace("https", "").replace("http", "").strip()
             if "," in raw_text3:
                  name = f'{PRENAME} {name1[:60]}'
