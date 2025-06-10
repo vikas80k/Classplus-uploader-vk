@@ -588,13 +588,21 @@ async def txt_handler(bot: Client, m: Message):
              file_id = link.split("/d/")[1].split("/")[0]
              Vxy = f"drive.google.com/uc?export=download&id={file_id}"
             else:
-                Vxy = link.replace("www.youtube-nocookie.com/embed", "youtu.be") \
-                     .replace("?modestbranding=1", "") \
-                     .replace("/view?usp=sharing", "")
+              if "youtube.com/embed/" in link:
+                 video_id = link.split("/embed/")[1]
+                 Vxy = f"www.youtube.com/watch?v={video_id}"
+              else:
+                 Vxy = link.replace("file/d/", "uc?export=download&id=") \
+                       .replace("www.youtube-nocookie.com/embed", "youtu.be") \
+                       .replace("?modestbranding=1", "") \
+                       .replace("/view?usp=sharing", "")
 
-            url = "https://" + Vxy
-            link0 = "https://" + Vxy
-            name1 = links[i][0].replace("(", "[").replace(")", "]").replace("_", "").replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "").replace("*", "").replace(".", "").replace("https", "").replace("http", "").strip()
+               if not Vxy.startswith("http"):
+                  Vxy = "https://" + Vxy
+
+               url = Vxy
+               link0 = Vxy
+               name1 = links[i][0].replace("(", "[").replace(")", "]").replace("_", "").replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "").replace("*", "").replace(".", "").replace("https", "").replace("http", "").strip()
             if "," in raw_text3:
                  name = f'{PRENAME} {name1[:60]}'
             else:
