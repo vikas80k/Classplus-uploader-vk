@@ -205,7 +205,7 @@ async def youtube_to_txt(client, message: Message):
         'skip_download': True,
         'force_generic_extractor': True,
         'forcejson': True,
-        'cookies': 'youtube_cookies.txt'  # Specify the cookies file
+        #'cookies': 'youtube_cookies.txt'  # Specify the cookies file
     }
 
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
