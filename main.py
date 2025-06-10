@@ -628,6 +628,12 @@ async def txt_handler(bot: Client, m: Message):
                 response = requests.get(f'https://api.classplusapp.com/cams/uploader/video/jw-signed-url?url={url}', headers=headers)
                 url   = response.json()['url']
 
+            elif "drive.google.com" in url:
+               match = re.search(r'id=([^&]+)', url)
+               if match:
+                  file_id = match.group(1)
+                  url = f"https://drive.google.com/uc?id={file_id}&export=download"
+            
             elif "childId" in url and "parentId" in url:
                 url = f"https://anonymousrajputplayer-9ab2f2730a02.herokuapp.com/pw?url={url}&token={raw_text4}"
                            
@@ -906,6 +912,12 @@ async def text_handler(bot: Client, m: Message):
                 response = requests.get(f'https://api.classplusapp.com/cams/uploader/video/jw-signed-url?url={url}', headers=headers)
                 url   = response.json()['url']
 
+            elif "drive.google.com" in url:
+               match = re.search(r'id=([^&]+)', url)
+               if match:
+                  file_id = match.group(1)
+                  url = f"https://drive.google.com/uc?id={file_id}&export=download"
+            
             elif "childId" in url and "parentId" in url:
                 url = f"https://pwplayer-38c1ae95b681.herokuapp.com/pw?url={url}&token={raw_text4}"
                            
