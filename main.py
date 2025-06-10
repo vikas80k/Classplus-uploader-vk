@@ -581,11 +581,19 @@ async def txt_handler(bot: Client, m: Message):
     count =int(raw_text)    
     arg = int(raw_text)
     try:
-        for i in range(arg-1, len(links)):
-            Vxy = links[i][1].replace("file/d/","uc?export=download&id=").replace("www.youtube-nocookie.com/embed", "youtu.be").replace("?modestbranding=1", "").replace("/view?usp=sharing","")
+          for i in range(arg - 1, len(links)):
+            link = links[i][1]
+ 
+            if "drive.google.com" in link and "/d/" in link:
+             file_id = link.split("/d/")[1].split("/")[0]
+             Vxy = f"drive.google.com/uc?export=download&id={file_id}"
+            else:
+                Vxy = link.replace("www.youtube-nocookie.com/embed", "youtu.be") \
+                     .replace("?modestbranding=1", "") \
+                     .replace("/view?usp=sharing", "")
+
             url = "https://" + Vxy
             link0 = "https://" + Vxy
-
             name1 = links[i][0].replace("(", "[").replace(")", "]").replace("_", "").replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "").replace("*", "").replace(".", "").replace("https", "").replace("http", "").strip()
             if "," in raw_text3:
                  name = f'{PRENAME} {name1[:60]}'
@@ -628,10 +636,6 @@ async def txt_handler(bot: Client, m: Message):
                 response = requests.get(f'https://api.classplusapp.com/cams/uploader/video/jw-signed-url?url={url}', headers=headers)
                 url   = response.json()['url']
 
-            elif "drive.google.com" in url and "/d/" in url:
-               file_id = url.split("/d/")[1].split("/")[0]
-               url = f"https://drive.google.com/uc?id={file_id}&export=download"
-            
             elif "childId" in url and "parentId" in url:
                 url = f"https://anonymousrajputplayer-9ab2f2730a02.herokuapp.com/pw?url={url}&token={raw_text4}"
                            
