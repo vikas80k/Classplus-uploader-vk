@@ -599,11 +599,14 @@ async def txt_handler(bot: Client, m: Message):
 
             url = "https://" + Vxy
             link0 = "https://" + Vxy
-            name1 = links[i][0].replace("(", "[").replace(")", "]").replace("_", "").replace("\t", "").replace(":", "").replace("/", "").replace("+", "").replace("#", "").replace("|", "").replace("@", "").replace("*", "").replace(".", "").replace("https", "").replace("http", "").strip()
-            if "," in raw_text3:
-                 name = f'{PRENAME} {name1[:60]}'
+            name1 = links[i][0].replace("(", "[").replace(")", "]").replace("_", "").replace("\t", "") \
+                    .replace("https", "").replace("http", "").strip()
+            name1 = re.sub(r'[\\/*?:"<>|+#@*.,]', "", name1)
+
+            if","in raw_text3:
+              name = f'{PRENAME} {name1[:60]}'
             else:
-                 name = f'{name1[:60]}'
+              name = f'{name1[:60]}'
             
             if "visionias" in url:
                 async with ClientSession() as session:
