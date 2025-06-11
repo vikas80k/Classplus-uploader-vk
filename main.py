@@ -604,10 +604,24 @@ async def txt_handler(bot: Client, m: Message):
             if ".zip" in url:
                 url = f"https://video.pablocoder.eu.org/appx-zip?url={url}"
                 
+                            
             elif 'encrypted.m' in url:
                 appxkey = url.split('*')[1]
-                url = url.split('*')[0]
+                url = url.split('*')[0]  # Keep the original structure
 
+    # Modify the base URL and remove everything after '?'
+                if "static-trans-v2.classx.co.in" in url:
+                  url = url.replace("static-trans-v2.classx.co.in", "transcoded-videos-v2.classx.co.in")
+                  url = url.split('?')[0]  # Removing everything after '?'
+
+                   # Append the extracted appxkey at the end
+                  url += f"*{appxkey}"
+                elif "static-trans-v1.classx.co.in/videos" in url:
+                   url = url.replace("static-trans-v1.classx.co.in/videos", "appx-transcoded-videos-mcdn.akamai.net.in/videos")
+                   url = url.split('?')[0]  # Removing everything after '?'
+
+    # Append the extracted appxkey at the end
+                   url += f"*{appxkey}"
             if "youtu" in url:
                 ytf = f"b[height<={raw_text2}][ext=mp4]/bv[height<={raw_text2}][ext=mp4]+ba[ext=m4a]/b[ext=mp4]"
             elif "embed" in url:
