@@ -615,13 +615,13 @@ async def txt_handler(bot: Client, m: Message):
                   url = url.split('?')[0]  # Removing everything after '?'
 
                    # Append the extracted appxkey at the end
-                  url += f"*{appxkey}"
+                  
                 elif "static-trans-v1.classx.co.in/videos" in url:
                    url = url.replace("static-trans-v1.classx.co.in/videos", "appx-transcoded-videos-mcdn.akamai.net.in/videos")
                    url = url.split('?')[0]  # Removing everything after '?'
 
     # Append the extracted appxkey at the end
-                   url += f"*{appxkey}"
+                   
             if "youtu" in url:
                 ytf = f"b[height<={raw_text2}][ext=mp4]/bv[height<={raw_text2}][ext=mp4]+ba[ext=m4a]/b[ext=mp4]"
             elif "embed" in url:
@@ -984,13 +984,13 @@ async def text_handler(bot: Client, m: Message):
                   url = url.split('?')[0]  # Removing everything after '?'
 
                    # Append the extracted appxkey at the end
-                  url += f"*{appxkey}"
+                  
                 elif "static-trans-v1.classx.co.in/videos" in url:
                    url = url.replace("static-trans-v1.classx.co.in/videos", "appx-transcoded-videos-mcdn.akamai.net.in/videos")
                    url = url.split('?')[0]  # Removing everything after '?'
 
     # Append the extracted appxkey at the end
-                   url += f"*{appxkey}"
+                   
 
 
             if "youtu" in url:
