@@ -962,7 +962,15 @@ async def text_handler(bot: Client, m: Message):
                 
             elif 'encrypted.m' in url:
                 appxkey = url.split('*')[1]
-                url = url.split('*')[0]
+                url = url.split('*')[0]  # Keep the original structure
+
+    # Modify the base URL and remove everything after '?'
+                if "static-trans-v2.classx.co.in" in url:
+                  url = url.replace("static-trans-v2.classx.co.in", "transcoded-videos-v2.classx.co.in")
+                  url = url.split('?')[0]  # Removing everything after '?'
+
+                   # Append the extracted appxkey at the end
+                  url += f"*{appxkey}"
 
             if "youtu" in url:
                 ytf = f"b[height<={raw_text2}][ext=mp4]/bv[height<={raw_text2}][ext=mp4]+ba[ext=m4a]/b[ext=mp4]"
