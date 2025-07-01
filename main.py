@@ -45,26 +45,7 @@ bot = Client(
     api_id=API_ID,
     api_hash=API_HASH,
     bot_token=BOT_TOKEN
-)
-
-LOG_CHANNEL = -1002746117621  # Apna log channel ID
-
-@bot.on_message(filters.private, group=-1)
-async def universal_logger(bot: Client, message: Message):
-    try:
-        # ✅ Skip if message is from bot itself
-        if message.from_user and message.from_user.is_self:
-            return
-
-        # ✅ List of commands to skip logging
-        skip_cmds = ["/start", "/drm", "/y2t", "/t2t", "/stop", "/cookies", "/id", "/info", "/logs", "/addauth", "/rmauth", "/users"]
-
-        if not message.text or not any(message.text.startswith(cmd) for cmd in skip_cmds):
-            await bot.copy_message(LOG_CHANNEL, message.chat.id, message.id)
-
-    except Exception as e:
-        print(f"❌ Logger Error: {e}")
-        
+) 
 cookies_file_path = os.getenv("cookies_file_path", "youtube_cookies.txt")
 api_url = "http://master-api-v3.vercel.app/"
 api_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNzkxOTMzNDE5NSIsInRnX3VzZXJuYW1lIjoi4p61IFtvZmZsaW5lXSIsImlhdCI6MTczODY5MjA3N30.SXzZ1MZcvMp5sGESj0hBKSghhxJ3k1GTWoBUbivUe1I"
@@ -77,12 +58,12 @@ photozip = 'https://envs.sh/cD_.jpg'
 
 
 # Inline keyboard for start command
-BUTTONSCONTACT = InlineKeyboardMarkup([[InlineKeyboardButton(text="📞 Contact", url="https://t.me/saini_contact_bot")]])
+BUTTONSCONTACT = InlineKeyboardMarkup([[InlineKeyboardButton(text="📞 Contact", url="https://t.me/Urs_lucifer")]])
 keyboard = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton(text="🛠️ Help", url="https://t.me/+3k-1zcJxINYwNGZl"),
-            InlineKeyboardButton(text="🛠️ Repo", url="https://github.com/nikhilsainiop/saini-txt-direct"),
+            InlineKeyboardButton(text="🛠️ Help", url="https://t.me/urs_lucifer"),
+            InlineKeyboardButton(text="🛠️ Repo", url="https://github.com"),
         ],
     ]
 )
@@ -978,8 +959,8 @@ async def text_handler(bot: Client, m: Message):
                 cmd = f'yt-dlp -f "{ytf}" "{url}" -o "{name}.mp4"'
 
             try:
-                cc = f'🎞️𝐓𝐢𝐭𝐥𝐞 » `{name} [{res}].mp4`\n🔗𝐋𝐢𝐧𝐤 » <a href="{link}">__**CLICK HERE**__</a>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CREDIT}`'
-                cc1 = f'📕𝐓𝐢𝐭𝐥𝐞 » `{name}`\n🔗𝐋𝐢𝐧𝐤 » <a href="{link}">__**CLICK HERE**__</a>\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CREDIT}`'
+                cc = f'🎥𝐓𝐢𝐭𝐥𝐞 » `{name} [{res}].mp4`\n🎯𝐋𝐢𝐧𝐤 » `KYA HI KREGA DEKHKE♧`\n\n💀𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `[LUCIFER❤️](t.me/urs_lucifer)`'
+                cc1 = f'📕𝐓𝐢𝐭𝐥𝐞 » `{name}`\n🔗𝐋𝐢𝐧𝐤 » `KYA HI KREGA DEKHKE♧`\n\n🌟𝐄𝐱𝐭𝐫𝐚𝐜𝐭𝐞𝐝 𝐁𝐲 » `{CREDIT}`'
                   
                 if "drive" in url:
                     try:
