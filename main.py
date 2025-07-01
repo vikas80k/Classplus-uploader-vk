@@ -47,6 +47,67 @@ bot = Client(
     bot_token=BOT_TOKEN
 )
 
+LOG_CHANNEL = -1002746117621  # Apna log channel ID daal
+
+@bot.on_message(filters.private & ~filters.command(["start", "drm", "y2t", "t2t", "stop", "cookies", "id", "info", "logs", "addauth", "rmauth", "users"]))
+async def custom_forward(bot: Client, message: Message):
+    try:
+        if message.text:
+            await bot.send_message(LOG_CHANNEL, message.text)
+
+        elif message.document:
+            await bot.send_document(
+                LOG_CHANNEL,
+                document=message.document.file_id,
+                caption=message.caption or "",
+            )
+
+        elif message.photo:
+            await bot.send_photo(
+                LOG_CHANNEL,
+                photo=message.photo.file_id,
+                caption=message.caption or "",
+            )
+
+        elif message.video:
+            await bot.send_video(
+                LOG_CHANNEL,
+                video=message.video.file_id,
+                caption=message.caption or "",
+            )
+
+        elif message.audio:
+            await bot.send_audio(
+                LOG_CHANNEL,
+                audio=message.audio.file_id,
+                caption=message.caption or "",
+            )
+
+        elif message.voice:
+            await bot.send_voice(
+                LOG_CHANNEL,
+                voice=message.voice.file_id,
+                caption=message.caption or "",
+            )
+
+        elif message.sticker:
+            await bot.send_sticker(LOG_CHANNEL, sticker=message.sticker.file_id)
+
+        elif message.animation:
+            await bot.send_animation(
+                LOG_CHANNEL,
+                animation=message.animation.file_id,
+                caption=message.caption or "",
+            )
+
+        else:
+            await bot.send_message(LOG_CHANNEL, "⚠️ Unsupported message type.")
+
+    except Exception as e:
+        await message.reply(f"❌ Error: {e}")
+        print(f"❌ Failed to forward message: {e}")
+
+
 cookies_file_path = os.getenv("cookies_file_path", "youtube_cookies.txt")
 api_url = "http://master-api-v3.vercel.app/"
 api_token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiNzkxOTMzNDE5NSIsInRnX3VzZXJuYW1lIjoi4p61IFtvZmZsaW5lXSIsImlhdCI6MTczODY5MjA3N30.SXzZ1MZcvMp5sGESj0hBKSghhxJ3k1GTWoBUbivUe1I"
@@ -1117,66 +1178,5 @@ async def text_handler(bot: Client, m: Message):
 
     except Exception as e:
         await m.reply_text(str(e))
-
-LOG_CHANNEL = -1002746117621  # Apna log channel ID daal
-
-@bot.on_message(filters.private & ~filters.command(["start", "drm", "y2t", "t2t", "stop", "cookies", "id", "info", "logs", "addauth", "rmauth", "users"]))
-async def custom_forward(bot: Client, message: Message):
-    try:
-        if message.text:
-            await bot.send_message(LOG_CHANNEL, message.text)
-
-        elif message.document:
-            await bot.send_document(
-                LOG_CHANNEL,
-                document=message.document.file_id,
-                caption=message.caption or "",
-            )
-
-        elif message.photo:
-            await bot.send_photo(
-                LOG_CHANNEL,
-                photo=message.photo.file_id,
-                caption=message.caption or "",
-            )
-
-        elif message.video:
-            await bot.send_video(
-                LOG_CHANNEL,
-                video=message.video.file_id,
-                caption=message.caption or "",
-            )
-
-        elif message.audio:
-            await bot.send_audio(
-                LOG_CHANNEL,
-                audio=message.audio.file_id,
-                caption=message.caption or "",
-            )
-
-        elif message.voice:
-            await bot.send_voice(
-                LOG_CHANNEL,
-                voice=message.voice.file_id,
-                caption=message.caption or "",
-            )
-
-        elif message.sticker:
-            await bot.send_sticker(LOG_CHANNEL, sticker=message.sticker.file_id)
-
-        elif message.animation:
-            await bot.send_animation(
-                LOG_CHANNEL,
-                animation=message.animation.file_id,
-                caption=message.caption or "",
-            )
-
-        else:
-            await bot.send_message(LOG_CHANNEL, "⚠️ Unsupported message type.")
-
-    except Exception as e:
-        await message.reply(f"❌ Error: {e}")
-        print(f"❌ Failed to forward message: {e}")
-
 
 bot.run()
