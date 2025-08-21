@@ -922,6 +922,7 @@ async def txt_handler(bot: Client, m: Message):
     global processing_request, cancel_requested, cancel_message, caption, vidwatermark, cwtoken, pwtoken, cptoken, topic
     processing_request = True
     cancel_requested = False
+    user_id = m.from_user.id
     if m.chat.id not in AUTH_USERS:
             print(f"User ID not in AUTH_USERS", m.chat.id)
             await bot.send_message(m.chat.id, f"<blockquote>__**Oopss! You are not a Premium member\nPLEASE /upgrade YOUR PLAN\nSend me your user id for authorization\nYour User id**__ - `{m.chat.id}`</blockquote>\n")
