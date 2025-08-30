@@ -1737,6 +1737,7 @@ async def txt_handler(bot: Client, m: Message):
 
 @bot.on_message(filters.text & filters.private)
 async def text_handler(bot: Client, m: Message):
+    user_id = m.from_user.id
     if m.from_user.is_bot:
         return
     links = m.text
