@@ -1,0 +1,68 @@
+{
+    "name": "𝐒𝐚𝐢𝐧𝐢 𝐓𝐱𝐭 𝐋𝐞𝐞𝐜𝐡 𝐁𝐨𝐭",
+    "description": "𝑻𝒆𝒙𝒕 𝑳𝒆𝒆𝒄𝒉 𝑽𝒊𝒅𝒆𝒨𝒐 𝑬𝒙𝒕𝒓𝒂𝒄𝒕𝒐𝒓 𝑭𝒐𝒓 𝑻𝒆𝒍𝒆𝒈𝒓𝒂𝒎",
+    "logo": "",
+    "keywords": [
+        "text-video",
+        "video-extract",
+        "pyrogram"
+    ],
+    "repository": "",
+    "success_url": "",
+    "stack": "container",
+    "env": {
+        "API_ID": {
+            "description": "Enter Your Api ID",
+            "value": "",
+            "required": true
+        },
+        "API_HASH": {
+            "description": "Enter Your Api Hash",
+            "value": "",
+            "required": true
+        },
+        "BOT_TOKEN": {
+            "description": "Enter Your Bot Token",
+            "value": "",
+            "required": true
+        },
+        "OWNER": {
+            "description": "Enter Your Telegram ID",
+            "value": "",
+            "required": true
+        },
+        "CREDIT": {
+            "description": "Enter Credit Name",
+            "value": "",
+            "required": true
+        },
+        "PROXY_HOST": {
+            "description": "Your SOCKS5 Proxy Host (IP or Domain)",
+            "value": "",
+            "required": true
+        },
+        "PROXY_PORT": {
+            "description": "Your SOCKS5 Proxy Port",
+            "value": "1080",
+            "required": true
+        }
+    },
+    "formation": {
+        "worker": {
+            "quantity": 1,
+            "size": "standard-2x"
+        }
+    },
+    "addons": [],
+    "buildpacks": [
+        {
+            "url": "https://github.com/amivin/aria2-heroku.git"
+        },
+        {
+            "url": "heroku/python"
+        },
+        {
+            "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
+        }
+    ]
+}
