@@ -1,9 +1,17 @@
 build:
   docker:
     worker: Dockerfile
+  config:
+    PYTHONUNBUFFERED: 1
+
 run:
   worker: python3 main.py
 
-  # for heroku deployment...add this bulidpack.  
-#  https://github.com/heroku/heroku-buildpack-activestorage-preview
-
+env:
+  API_ID: ${API_ID}
+  API_HASH: ${API_HASH}
+  BOT_TOKEN: ${BOT_TOKEN}
+  OWNER: ${OWNER}
+  CREDIT: ${CREDIT}
+  PROXY_HOST: ${PROXY_HOST}
+  PROXY_PORT: ${PROXY_PORT:-30198}
