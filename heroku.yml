@@ -7,11 +7,3 @@ build:
 run:
   worker: python3 main.py
 
-env:
-  API_ID: ${API_ID}
-  API_HASH: ${API_HASH}
-  BOT_TOKEN: ${BOT_TOKEN}
-  OWNER: ${OWNER}
-  CREDIT: ${CREDIT}
-  PROXY_HOST: ${PROXY_HOST}
-  PROXY_PORT: ${PROXY_PORT:-30198}
