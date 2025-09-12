@@ -406,6 +406,13 @@ async def drm_handler(bot: Client, m: Message):
                         continue    
   
                 elif ".pdf" in url:
+                    if m.text:
+                        namef = f'{namef}'
+                    else:
+                        if topic == "/yes":
+                            namef = f'{v_name}'
+                        else:
+                            namef = f'{namef}'
                     if "cwmediabkt99" in url:
                         max_retries = 15  # Define the maximum number of retries
                         retry_delay = 4  # Delay between retries in seconds
