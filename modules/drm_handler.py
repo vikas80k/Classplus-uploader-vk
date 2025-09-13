@@ -330,12 +330,12 @@ async def drm_handler(bot: Client, m: Message):
 
             try:
                 if m.text:
-                    cc = f'{name1} [{res}p] .mkv'
-                    cc1 = f'{name1} .pdf'
-                    cczip = f'{name1} .zip'
-                    ccimg = f'{name1} .jpg'
-                    ccm = f'{name1} .mp3'
-                    cchtml = f'{name1} .html'
+                    cc = f'[{name1} [{res}p].mkv](link0)'
+                    cc1 = f'[{name1}.pdf](link0)'
+                    cczip = f'[{name1}.zip](link0)'
+                    ccimg = f'[{name1}.jpg](link0)'
+                    ccm = f'[{name1}.mp3](link0)'
+                    cchtml = f'[{name1}.html](link0)'
                 else:
                     if topic == "/yes":
                         raw_title = links[i][0]
@@ -412,7 +412,18 @@ async def drm_handler(bot: Client, m: Message):
                         f"━━━━━━━━━━━━━━━━━━━━━━━━━\n" \
                         f"🛑**Send** /stop **to stop process**\n┃\n" \
                         f"╰━✦𝐁𝐨𝐭 𝐌𝐚𝐝𝐞 𝐁𝐲 ✦ {CREDIT}"
-                    
+
+                if m.text:
+                    namef = f'{namef}'
+                else:
+                    if topic == "/yes":
+                        if endfilename == "/d":
+                            namef = f'{v_name} {endfilename}'
+                        else:
+                            namef = f'{v_name}'
+                    else:
+                        namef = f'{namef}'
+                           
                 if "drive" in url:
                     try:
                         ka = await helper.download(url, name)
@@ -425,16 +436,6 @@ async def drm_handler(bot: Client, m: Message):
                         continue    
   
                 elif "pdf" in url:
-                    if m.text:
-                        namef = f'{namef}'
-                    else:
-                        if topic == "/yes":
-                            if endfilename == "/d":
-                                namef = f'{v_name} {endfilename}'
-                            else:
-                                namef = f'{v_name}'
-                        else:
-                            namef = f'{namef}'
                     if "cwmediabkt99" in url:
                         max_retries = 15  # Define the maximum number of retries
                         retry_delay = 4  # Delay between retries in seconds
