@@ -330,12 +330,12 @@ async def drm_handler(bot: Client, m: Message):
 
             try:
                 if m.text:
-                    cc = f'[{name1} [{res}p].mkv](link0)'
-                    cc1 = f'[{name1}.pdf](link0)'
-                    cczip = f'[{name1}.zip](link0)'
-                    ccimg = f'[{name1}.jpg](link0)'
-                    ccm = f'[{name1}.mp3](link0)'
-                    cchtml = f'[{name1}.html](link0)'
+                    cc = f'[{name1} [{res}p].mkv]({link0})'
+                    cc1 = f'[{name1}.pdf]({link0})'
+                    cczip = f'[{name1}.zip]({link0})'
+                    ccimg = f'[{name1}.jpg]({link0})'
+                    ccm = f'[{name1}.mp3]({link0})'
+                    cchtml = f'[{name1}.html]({link0})'
                 else:
                     if topic == "/yes":
                         raw_title = links[i][0]
