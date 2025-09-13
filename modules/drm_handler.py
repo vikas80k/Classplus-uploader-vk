@@ -418,9 +418,9 @@ async def drm_handler(bot: Client, m: Message):
                 else:
                     if topic == "/yes":
                         if endfilename == "/d":
-                            namef = f'{v_name} {endfilename}'
-                        else:
                             namef = f'{v_name}'
+                        else:
+                            namef = f'{v_name} {endfilename}'
                     else:
                         namef = f'{namef}'
                            
