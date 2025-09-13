@@ -429,7 +429,10 @@ async def drm_handler(bot: Client, m: Message):
                         namef = f'{namef}'
                     else:
                         if topic == "/yes":
-                            namef = f'{v_name}'
+                            if endfilename == "/d":
+                                namef = f'{v_name} {endfilename}'
+                            else:
+                                namef = f'{v_name}'
                         else:
                             namef = f'{namef}'
                     if "cwmediabkt99" in url:
