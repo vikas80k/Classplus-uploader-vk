@@ -155,7 +155,7 @@ async def cancel_handler(client: Client, m: Message):
         await bot.send_message(
             m.chat.id, 
             f"<blockquote>__**Oopss! You are not a Premium member**__\n"
-            f"__**PLEASE /upgrade YOUR PLAN**__\n"
+            f"__**Please Upgrade Your Plan**__\n"
             f"__**Send me your user id for authorization**__\n"
             f"__**Your User id** __- `{m.chat.id}`</blockquote>\n\n"
         )
