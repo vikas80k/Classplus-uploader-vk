@@ -285,8 +285,7 @@ async def drm_handler(bot: Client, m: Message):
                         url = None
                         keys_string = None
                 except Exception as e:
-                    await m.reply_text(f"**Failed Reason to Sign in**\n**Url** =>> {url}\n<blockquote>{str(e)}</blockquote>") 
-                    await bot.send_message(channel_id, f'⚠️**Downloading Failed**⚠️\n**Name** =>> `{str(count).zfill(3)} {name1}`\n**Url** =>> {url}\n\n<blockquote expandable><i><b>Failed Reason: {str(e)}</b></i></blockquote>', disable_web_page_preview=True)
+                    await bot.send_message(channel_id, f'⚠️**Downloading Failed**⚠️\n**Name** =>> `{str(count).zfill(3)} {name1}`\n**Url** =>> {url}\n\n<blockquote expandable><i><b>Failed Reason to sign url: {str(e)}</b></i></blockquote>', disable_web_page_preview=True)
                     count += 1
                     failed_count += 1
                     continue
