@@ -1,18 +1,6 @@
-import os
-import re
-import sys
-import m3u8
-import json
-import time
-import pytz
-import asyncio
-import requests
-import subprocess
-import urllib
-import urllib.parse
-import yt_dlp
-import tgcrypto
-import cloudscraper
+import os, re, sys, m3u8, json, time, pytz, asyncio, requests, subprocess, urllib, urllib.parse
+import tgcrypto, cloudscraper, random, aiohttp, ffmpeg,shutil, zipfile, aiofiles, yt_dlp
+
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import unpad
 from base64 import b64encode, b64decode
@@ -22,18 +10,12 @@ from aiohttp import ClientSession
 from subprocess import getstatusoutput
 from pytube import YouTube
 from aiohttp import web
-import random
 from pyromod import listen
 from pyrogram import Client, filters
 from pyrogram.errors import FloodWait, PeerIdInvalid, UserIsBlocked, InputUserDeactivated
 from pyrogram.errors.exceptions.bad_request_400 import StickerEmojiInvalid
 from pyrogram.types.messages_and_media import message
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, InputMediaPhoto
-import aiohttp
-import aiofiles
-import zipfile
-import shutil
-import ffmpeg
 
 import saini as helper
 import globals
@@ -42,7 +24,6 @@ from vars import API_ID, API_HASH, BOT_TOKEN, OWNER, CREDIT, AUTH_USERS, TOTAL_U
 from vars import api_url, api_token
 
 # .....,.....,.......,...,.......,....., .....,.....,.......,...,.......,.....,
-
 
 async def drm_handler(bot: Client, m: Message):
     globals.processing_request = True
@@ -546,7 +527,8 @@ async def drm_handler(bot: Client, m: Message):
     success_count = len(links) - failed_count
     video_count = v2_count + mpd_count + m3u8_count + yt_count + drm_count + zip_count + other_count
     if m.document:
-        await bot.send_message(channel_id, f"<b>-┈━═.•°✅ Completed ✅°•.═━┈-</b>\n<blockquote><b>🎯Batch Name : {b_name}</b></blockquote>\n<blockquote>🔗 Total URLs: {len(links)} \n┃   ┠🔴 Total Failed URLs: {failed_count}\n┃   ┠🟢 Total Successful URLs: {success_count}\n┃   ┃   ┠🎥 Total Video URLs: {video_count}\n┃   ┃   ┠📄 Total PDF URLs: {pdf_count}\n┃   ┃   ┠📸 Total IMAGE URLs: {img_count}</blockquote>\n")
+        await bot.send_message(channel_id, f"<blockquote>🔗 Total URLs: {len(links)} \n┃   ┠🔴 Total Failed URLs: {failed_count}\n┃   ┠🟢 Total Successful URLs: {success_count}\n┃   ┃   ┠🎥 Total Video URLs: {video_count}\n┃   ┃   ┠📄 Total PDF URLs: {pdf_count}\n┃   ┃   ┠📸 Total IMAGE URLs: {img_count}</blockquote>\n")
+        await bot.send_message(channel_id, f"⋅ ─ list index out of range ─ ⋅\n<blockquote><b>📚Batch</b> : {b_name}</blockquote>\n⋅ ─ DOWNLOADING ✩ COMPLETED ─ ⋅")
         if "/d" not in raw_text7:
             await bot.send_message(m.chat.id, f"<blockquote><b>✅ Your Task is completed, please check your Set Channel📱</b></blockquote>")
 
