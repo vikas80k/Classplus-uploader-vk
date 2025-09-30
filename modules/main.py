@@ -54,7 +54,7 @@ async def start(bot, m: Message):
     mention = user.mention
     if m.chat.id in AUTH_USERS:
         caption = (
-            f"𝐇𝐞𝐥𝐥𝐨 𝐃𝐞𝐚𝐫 **{m.from_user.first_name}** 👋!\n\n"
+            f"𝐇𝐞𝐥𝐥𝐨 𝐃𝐞𝐚𝐫 👋!\n\n"
             f"➠ 𝐈 𝐚𝐦 𝐚 𝐓𝐞𝐱𝐭 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫 𝐁𝐨𝐭\n\n"
             f"➠ Can Extract Videos & PDFs From Your Text File and Upload to Telegram!\n\n"
             f"➠ For Guide Use button - **✨ Commands** 📖\n\n"
@@ -62,11 +62,12 @@ async def start(bot, m: Message):
         )
     else:
         caption = (
-            f"🎉 Welcome {m.from_user.first_name} to DRM Bot! 🎉\n\n"
-            f"**You are currently using the free version.** 🆓\n\n"
-            f"I'm here to make your life easier by downloading videos from your **.txt** file 📄 and uploading them directly to Telegram!\n\n"
+            f"𝐇𝐞𝐥𝐥𝐨 **{m.from_user.first_name}** 👋!\n\n"
+            f"➠ 𝐈 𝐚𝐦 𝐚 𝐓𝐞𝐱𝐭 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫 𝐁𝐨𝐭\n\n"
+            f"➠ Can Extract Videos & PDFs From Your Text File and Upload to Telegram!\n\n"
+            f"**You are currently using the free version.** 🆓\n"
             f"**Want to get started? Press /id**\n\n"
-            f"💬 Contact: [{CREDIT}](tg://openmessage?user_id={OWNER}) to Get The Subscription 🎫 and unlock the full potential of your new bot! 🔓\n"
+            f"💬 Contact: [{CREDIT}](tg://openmessage?user_id={OWNER}) to Get The Subscription ! 🔓\n"
         )
     await bot.send_photo(
         chat_id=m.chat.id,
@@ -80,7 +81,9 @@ async def start(bot, m: Message):
 async def back_to_main_menu(client, callback_query):
     user_id = callback_query.from_user.id
     first_name = callback_query.from_user.first_name
-    caption = f"✨ **Welcome [{first_name}](tg://user?id={user_id}) in My uploader bot**"
+    caption = f"𝐇𝐞𝐥𝐥𝐨 **{m.from_user.first_name}** 👋!\n\n"
+              f"➠ 𝐈 𝐚𝐦 𝐚 𝐓𝐞𝐱𝐭 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫 𝐁𝐨𝐭\n\n"
+              f"➠ 𝐁𝐲 : [{CREDIT}](tg://openmessage?user_id={OWNER})"
     
     await callback_query.message.edit_media(
       InputMediaPhoto(
@@ -109,7 +112,6 @@ async def id_command(client, message: Message):
 
 @bot.on_message(filters.private & filters.command(["info"]))
 async def info(bot: Client, update: Message):
-    keyboard = InlineKeyboardMarkup([[InlineKeyboardButton(text="📞 Contact", url=f"tg://openmessage?user_id={OWNER}")]])
     text = (
         f"╭────────────────╮\n"
         f"│✨ **Your Telegram Info**✨ \n"
@@ -122,8 +124,7 @@ async def info(bot: Client, update: Message):
     )    
     await update.reply_text(        
         text=text,
-        disable_web_page_preview=True,
-        reply_markup=keyboard
+        disable_web_page_preview=True
     )
 
 # .....,.....,.......,...,.......,....., .....,.....,.......,...,.......,.....,
