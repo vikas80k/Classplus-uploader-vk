@@ -219,7 +219,7 @@ def register_settings_handlers(bot):
     async def handle_token(client, callback_query):
         user_id = callback_query.from_user.id
         keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to Settings", callback_data="set_token_command")]])
-        editable = await callback_query.message.edit("**Send Carrerwill Token**", reply_markup=keyboard)
+        editable = await callback_query.message.edit("**Send Carrerwill Token or Send /d for default**", reply_markup=keyboard)
         input_msg = await bot.listen(editable.chat.id)
         try:
             if input_msg.text.lower() == "/d":
