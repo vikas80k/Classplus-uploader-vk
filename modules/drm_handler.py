@@ -539,7 +539,7 @@ async def drm_handler(bot: Client, m: Message):
         await m.reply_text(e)
         time.sleep(2)
 
-    success_count = len(links) - raw_text - failed_count + 1
+    success_count = len(links) - int(raw_text) - failed_count + 1
     video_count = len(links) - pdf_count - img_count
     if m.document:
         await bot.send_message(channel_id, f"<blockquote>🔗 Total URLs: {len(links)} \n┠🔴 Total Failed URLs: {failed_count}\n┠🟢 Total Successful URLs: {success_count}\n┃   ┠🎥 Total Video URLs: {video_count}\n┃   ┠📄 Total PDF URLs: {pdf_count}\n┃   ┠📸 Total IMAGE URLs: {img_count}</blockquote>\n")
