@@ -270,11 +270,27 @@ async def drm_handler(bot: Client, m: Message):
          
             elif "https://cpvod.testbook.com/" in url or "classplusapp.com/drm/" in url:
                 url = url.replace("https://cpvod.testbook.com/","https://media-cdn.classplusapp.com/drm/")
-                url = f"https://sainibotsdrm.vercel.app/api?url={url}&token={cptoken}&auth=4443683167"
-                mpd, keys = helper.get_mps_and_keys(url)
-                url = mpd
-                keys_string = " ".join([f"--key {key}" for key in keys])
-                
+                try:
+                    url = f"https://sainibotsdrm.vercel.app/api?url={url}&token={cptoken}&auth=4443683167"
+                    response = requests.get(url)
+                    data = response.json()
+                    #mpd = data.get('MPD')
+                    #keys = data.get('KEYS')
+                    if data.get("keys") and "url" in data:
+                        mpd = data.get('url')
+                        keys = data.get('keys')
+                        url = mpd
+                        keys_string = " ".join([f"--key {key}" for key in keys])
+                    else:
+                        raise Exception(f"API Error: {data.get('error', 'Unknown')}")
+                        mpd = None
+                        keys = None
+                        url = None
+                        keys_string = None
+                except Exception as e:
+                    await m.reply_text(f"**Failed reason to sign URL**\n<blockquote>{str(e)}</blockquote>")
+                    continue
+                    
             elif "tencdn.classplusapp" in url:
                 headers = {'host': 'api.classplusapp.com', 'x-access-token': f'{cptoken}', 'accept-language': 'EN', 'api-version': '18', 'app-version': '1.4.73.2', 'build-number': '35', 'connection': 'Keep-Alive', 'content-type': 'application/json', 'device-details': 'Xiaomi_Redmi 7_SDK-32', 'device-id': 'c28d3cb16bbdac01', 'region': 'IN', 'user-agent': 'Mobile-Android', 'webengage-luid': '00000187-6fe4-5d41-a530-26186858be4c', 'accept-encoding': 'gzip'}
                 params = {"url": f"{url}"}
@@ -524,7 +540,7 @@ async def drm_handler(bot: Client, m: Message):
         await m.reply_text(e)
         time.sleep(2)
 
-    success_count = len(links) -raw_text - failed_count + 1
+    success_count = len(links) - raw_text - failed_count + 1
     video_count = len(links) - pdf_count - img_count
     if m.document:
         await bot.send_message(channel_id, f"<blockquote>🔗 Total URLs: {len(links)} \n┠🔴 Total Failed URLs: {failed_count}\n┠🟢 Total Successful URLs: {success_count}\n┃   ┠🎥 Total Video URLs: {video_count}\n┃   ┠📄 Total PDF URLs: {pdf_count}\n┃   ┠📸 Total IMAGE URLs: {img_count}</blockquote>\n")
