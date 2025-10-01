@@ -1,13 +1,4 @@
-import os
-import re
-import sys
-import json
-import time
-import pytz
-import asyncio
-import requests
-import subprocess
-import random
+import os, re, sys, json, pytz, asyncio, requests, subprocess, random
 from pyromod import listen
 from pyrogram import Client, filters
 from pyrogram.errors.exceptions.bad_request_400 import StickerEmojiInvalid
