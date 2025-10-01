@@ -12,25 +12,25 @@ def register_upgrade_handlers(bot):
       first_name = callback_query.from_user.first_name
       keyboard = InlineKeyboardMarkup([[InlineKeyboardButton("🔙 Back to Main Menu", callback_data="back_to_main_menu")]])
       caption = (
-               f" 🎉 Welcome [{first_name}](tg://user?id={user_id}) to DRM Bot! 🎉\n\n"
-               f"You can have access to download all Non-DRM+AES Encrypted URLs 🔐 including\n\n"
-               f"<blockquote>• 📚 Appx Zip+Encrypted Url\n"
-               f"• 🎓 Classplus DRM+ NDRM\n"
-               f"• 🧑‍🏫 PhysicsWallah DRM\n"
-               f"• 📚 CareerWill + PDF\n"
-               f"• 🎓 Khan GS\n"
-               f"• 🎓 Study Iq DRM\n"
-               f"• 🚀 APPX + APPX Enc PDF\n"
-               f"• 🎓 Vimeo Protection\n"
-               f"• 🎓 Brightcove Protection\n"
-               f"• 🎓 Visionias Protection\n"
-               f"• 🎓 Zoom Video\n"
-               f"• 🎓 Utkarsh Protection(Video + PDF)\n"
-               f"• 🎓 All Non DRM+AES Encrypted URLs\n"
-               f"• 🎓 MPD URLs if the key is known (e.g., Mpd_url?key=key XX:XX)</blockquote>\n\n"
-               f"<b>💵 Monthly Plan: 100 INR</b>\n\n"
-               f"If you want to buy membership of the bot, feel free to contact [{CREDIT}](tg://user?id={OWNER})\n"
-        )  
+          f"🌟 <b>Welcome [{first_name}](tg://user?id={user_id})!</b> 🌟\n\n"
+          f"🤖 **DRM Bot** — Paid Service.\n\n"
+          f"🔐 <b>Features You Unlock:</b>\n"
+          f"━━━━━━━━━━━━━━━━━━━━━━━\n"
+          f"<blockquote>🎓 Classplus DRM / NDRM\n"
+          f"🧑‍🏫 PhysicsWallah Login\n"
+          f"📖 CareerWill (Brightcove & New)\n"
+          f"🎓 Khan GS\n"
+          f"🚀 APPX * Encrypted\n"
+          f"🎥 VisionIAS (Old)\n"
+          f"💻 Zoom | Utkarsh (Video + PDF)\n"
+          f"🌐 Non-DRM + AES URLs\n"
+          f"🔑 MPD Links (with valid key)</blockquote>"
+          f"━━━━━━━━━━━━━━━━━━━━━━━\n\n"
+          f"💎 <b>Membership Plan</b>\n"
+          f"👉 100 INR / Month\n\n"
+          f"📬 <b>How to Join?</b>\n"
+          f"🗨️ Contact ➡️ [{CREDIT}](tg://user?id={OWNER}) to activate your access."
+      )
     
       await callback_query.message.edit_media(
         InputMediaPhoto(
