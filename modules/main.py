@@ -82,7 +82,7 @@ async def back_to_main_menu(client, callback_query):
     user_id = callback_query.from_user.id
     first_name = callback_query.from_user.first_name
     caption = (
-        f"𝐇𝐞𝐥𝐥𝐨 **{m.from_user.first_name}** 👋!\n\n"
+        f"𝐇𝐞𝐥𝐥𝐨 **{first_name}** 👋!\n\n"
         f"➠ 𝐈 𝐚𝐦 𝐚 𝐓𝐞𝐱𝐭 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝𝐞𝐫 𝐁𝐨𝐭\n\n"
         f"➠ 𝐁𝐲 : [{CREDIT}](tg://openmessage?user_id={OWNER})"
     )
